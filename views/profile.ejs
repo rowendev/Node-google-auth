@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/header") %>
+    <script src="https://kit.fontawesome.com/0a58e80414.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <%- include ("partials/nav") %>
+    <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+      <h1 style="text-align: center;">Welcome to <%= user.name %>'s page</h1>
+      <img src="<%= user.thumbnail %>" alt="">
+      <p>googleID:<%= user.googleID %></p> 
+      <p>於<%= user.date %>註冊</p>
+      <br>
+      <br>
+      <% if (posts.length > 0) { %>
+        <% for (let i=0; i<posts.length; i++) { %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= posts[i].title %> 
+            </h5>
+            <p class="card-text">
+              <%= posts[i].content %> 
+            </p>
+            <p class="card-text" style="font-size: 0.5rem;">
+              <%= posts[i].date %> 
+            </p>
+          </div>
+        </div>
+        <br>
+        <% } %>
+      <%  } %> 
+    </div>
+  </body>
+</html>
